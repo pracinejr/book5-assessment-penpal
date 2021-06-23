@@ -1,0 +1,25 @@
+.field {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.label {
+  flex-basis: 24%;
+  justify-content: left;
+  margin: 0 1.5rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.input {
+  justify-content: left;
+}
+
+.deleteButton {
+  display: flex;
+  flex: 2 2 20em;
+  flex-direction: column;
+  padding: 0.5rem;
+  justify-content: right;
+}
