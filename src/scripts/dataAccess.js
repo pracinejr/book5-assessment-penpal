@@ -36,9 +36,3 @@ export const sendSentLetters = (userSentLetter) => {
       mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
     });
 };
-
-export const completedLetter = (id) => {
-  return fetch(`${API}/sentLetters/${id}`, { method: "DELETE" }).then(() => {
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"));
-  });
-};
