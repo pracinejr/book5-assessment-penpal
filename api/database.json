@@ -1,0 +1,61 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "name": "John McCantire"
+    },
+    {
+      "id": 2,
+      "name": "Maureen Short"
+    },
+    {
+      "id": 3,
+      "name": "Tammy Souza"
+    },
+    {
+      "id": 4,
+      "name": "Mark Ribiero"
+    }
+  ],
+  "recipients": [
+    {
+      "id": 1,
+      "name": "Marg Smith"
+    },
+    {
+      "id": 2,
+      "name": "Jannett Marksman"
+    },
+    {
+      "id": 3,
+      "name": "Bungalo Johnson"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "type": "Business"
+    },
+    {
+      "id": 2,
+      "type": "Friendly"
+    },
+    {
+      "id": 3,
+      "type": "Family"
+    },
+    {
+      "id": 4,
+      "type": "Congratulations"
+    },
+    {
+      "id": 5,
+      "type": "Condolences"
+    }
+  ],
+  "writtenLetters": [
+    {
+      ""
+    }
+  ]
+}

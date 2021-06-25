@@ -1,4 +1,9 @@
-import { sendSentLetters, getAuthors } from "./dataAccess.js";
+import {
+  sendSentLetters,
+  getAuthors,
+  getRecipients,
+  getTopics,
+} from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container");
 
@@ -29,22 +34,15 @@ mainContainer.addEventListener("click", (clickEvent) => {
 // filter through authors to offer all available authors to select in the filteredAuthors.map
 
 export const RequestForm = () => {
-  const filteredAuthors = [];
-  const getAvailableAuthors = () => {
-    const authors = getAuthors();
-    for (const author of authors) {
-      const filteredAuthors = authors
-        .filter((listItem) => listItem.authorId === author.id)
-        .push(author);
-    }
-  };
-  getAvailableAuthors();
+  const authors = getAuthors();
+  const recipients = getRecipients();
+  const topics = getTopics();
 
   let html = `
         <div class="field">
             <label class="label" for="authorName">Author</label>
             <selecet name="author_name_choice" id="author_name_choice">
-            ${filteredAuthors
+            ${authors
               .map((author) => {
                 return `<option value="${author.id}">${author.authorName}</option>`;
               })
@@ -55,12 +53,19 @@ export const RequestForm = () => {
             <textarea class="field" id"authorLetter" name="authorLetter" rows="15" columns="70"></textarea>
         </div>
         <div class="field">
-            <label class="label" for="partyKidsAtParty">Number of Kids Attending Party</label>
-            <input type="number" name="partyKidsAtParty" class="input" />
+            <label class="label" for="authorTopic">Topics</label>
+            <input type="radio" value="author--${
+              authorTopic.id
+            }" name="authorTopic"/>
         </div>
         <div class="field">
-            <label class="label" for="partyAddress">Party Address</label>
-            <input type="text" name="partyAddress" class="input" />
+            <label class="label" for="authorName">Author</label>
+            <selecet name="author_name_choice" id="author_name_choice">
+            ${recipients
+              .map((recipient) => {
+                return `<option value="${recipient.id}">${recipient.authorRecipient}</option>`;
+              })
+              .join("")}
         </div>
         
 
