@@ -1,4 +1,9 @@
-import { sendSentLetters, getAuthors } from "./dataAccess.js";
+import {
+  sendSentLetters,
+  getAuthors,
+  getRecipients,
+  getTopics,
+} from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container");
 
@@ -30,6 +35,8 @@ mainContainer.addEventListener("click", (clickEvent) => {
 
 export const RequestForm = () => {
   const authors = getAuthors();
+  const recipients = getRecipients();
+  const topics = getTopics();
 
   let html = `
         <div class="field">
@@ -52,8 +59,13 @@ export const RequestForm = () => {
             }" name="authorTopic"/>
         </div>
         <div class="field">
-            <label class="label" for="partyAddress">Party Address</label>
-            <input type="text" name="partyAddress" class="input" />
+            <label class="label" for="authorName">Author</label>
+            <selecet name="author_name_choice" id="author_name_choice">
+            ${recipients
+              .map((recipient) => {
+                return `<option value="${recipient.id}">${recipient.authorRecipient}</option>`;
+              })
+              .join("")}
         </div>
         
 
