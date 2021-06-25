@@ -29,22 +29,13 @@ mainContainer.addEventListener("click", (clickEvent) => {
 // filter through authors to offer all available authors to select in the filteredAuthors.map
 
 export const RequestForm = () => {
-  const filteredAuthors = [];
-  const getAvailableAuthors = () => {
-    const authors = getAuthors();
-    for (const author of authors) {
-      const filteredAuthors = authors
-        .filter((listItem) => listItem.authorId === author.id)
-        .push(author);
-    }
-  };
-  getAvailableAuthors();
+  const authors = getAuthors();
 
   let html = `
         <div class="field">
             <label class="label" for="authorName">Author</label>
             <selecet name="author_name_choice" id="author_name_choice">
-            ${filteredAuthors
+            ${authors
               .map((author) => {
                 return `<option value="${author.id}">${author.authorName}</option>`;
               })
@@ -55,8 +46,10 @@ export const RequestForm = () => {
             <textarea class="field" id"authorLetter" name="authorLetter" rows="15" columns="70"></textarea>
         </div>
         <div class="field">
-            <label class="label" for="partyKidsAtParty">Number of Kids Attending Party</label>
-            <input type="number" name="partyKidsAtParty" class="input" />
+            <label class="label" for="authorTopic">Topics</label>
+            <input type="radio" value="author--${
+              authorTopic.id
+            }" name="authorTopic"/>
         </div>
         <div class="field">
             <label class="label" for="partyAddress">Party Address</label>
